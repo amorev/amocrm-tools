@@ -2,7 +2,7 @@
     "name": "zvinger/amocrm-tools",
     "description": "Making work with amocrm testable and usable",
     "type": "library",
-    "keywords": ["amocrm",""],
+    "keywords": ["amocrm","wrapper"],
     "license": "MIT",
     "authors": [
         {
