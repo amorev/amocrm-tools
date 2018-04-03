@@ -25,6 +25,18 @@ class LeadGetterHandler extends BaseRealGetter implements LeadGetterInterface
         ]);
         $leadInfo = isset($leadData[0]) ? $leadData[0] : NULL;
         $leadInformation = new LeadInformation;
+        if (empty($leadInfo['main_contact_id'])) {
+            \Yii::warning("Empty contact info. Start getting links" . print_r($leadInfo, 1));
+            $links = $this->client->links->apiList([
+                'from'    => 'leads',
+                'from_id' => $leadId,
+                'to'      => 'contacts',
+            ]);
+            foreach ($links as $link) {
+                $leadInfo['main_contact_id'] = $link['to_id'];
+                break;
+            }
+        }
         if ($leadInfo) {
             $leadInformation->pipelineId = $leadInfo['pipeline_id'];
             $leadInformation->leadId = $leadInfo['id'];
