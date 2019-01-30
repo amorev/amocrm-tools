@@ -35,7 +35,7 @@ class AmocrmToolsHandlers extends Component
                 AssignedInterface::class => AssignedHandler::class,
                 ContactGetterInterface::class => ContactGetterHandler::class,
                 Client::class => function () {
-                    return \Yii::createObject(...$this->clientConfig)->getClient();
+                    return \Yii::createObject($this->clientConfig)->getClient();
                 },
                 ArrayHelperInterface::class => AmocrmArrayHelper::class,
             ]
