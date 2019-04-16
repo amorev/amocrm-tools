@@ -37,6 +37,7 @@ class LeadGetterHandler extends BaseRealGetter implements LeadGetterInterface
                 break;
             }
         }
+        $leadInformation->setFullData($leadInfo);
         if ($leadInfo) {
             $leadInformation->pipelineId = $leadInfo['pipeline_id'];
             $leadInformation->leadId = $leadInfo['id'];
