@@ -14,6 +14,7 @@ use yii\base\Component;
 use Zvinger\AmoCRMTools\handlers\real\contact\ContactGetterHandler;
 use Zvinger\AmoCRMTools\handlers\real\lead\AssignedHandler;
 use Zvinger\AmoCRMTools\handlers\real\lead\LeadGetterHandler;
+use Zvinger\AmoCRMTools\handlers\real\user\AmoUsersGetter;
 use Zvinger\AmoCRMTools\lib\helpers\AmocrmArrayHelper;
 use Zvinger\AmoCRMTools\lib\interfaces\contact\ContactGetterInterface;
 use Zvinger\AmoCRMTools\lib\interfaces\lead\AssignedInterface;
@@ -69,5 +70,14 @@ class AmocrmToolsHandlers extends Component
     public function getContactGetter(): ContactGetterInterface
     {
         return \Yii::createObject(ContactGetterInterface::class);
+    }
+
+    /**
+     * @return AmoUsersGetter
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function getUserGetter(): AmoUsersGetter
+    {
+        return \Yii::createObject(AmoUsersGetter::class);
     }
 }
