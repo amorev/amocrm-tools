@@ -54,6 +54,11 @@ class AmocrmToolsHandlers extends Component
         return \Yii::createObject(LeadGetterInterface::class);
     }
 
+    public function getAmocrmClient(): Client
+    {
+        return \Yii::createObject($this->clientConfig)->getClient();
+    }
+
     /**
      * @return LeadGetterInterface
      * @throws \yii\base\InvalidConfigException

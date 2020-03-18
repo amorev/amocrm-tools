@@ -53,4 +53,12 @@ class LeadInformation
             return $fields['values'][0]['value'];
         }
     }
+
+    public function getCustomFieldFirstValueObjectById($fieldId)
+    {
+        $fields = $this->getCustomFieldById($fieldId);
+        if (isset($fields['values'][0])) {
+            return $fields['values'][0];
+        }
+    }
 }
